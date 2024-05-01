@@ -28,15 +28,23 @@ FUNCTION Start() AS VOID STRICT
     CATCH ex AS Exception
         System.Console.WriteLine(ex:ToString())
     END TRY
-
+    
+    CarListHandling()
     
     LOCAL Car2 AS Car
     Car2 := Car{"Red", "Ford", "Focus", 4}
     ? "Make: ", Car2:Make, "Vehicle number: ", Car2:VehicleNumber
     
+    
+    
+    WAIT
+    RETURN
+END FUNCTION
+    
+FUNCTION CarListHandling AS VOID STRICT
     LOCAL carList AS List<Car>
     carList := List<Car>{}
-//     carList := List<Car>{Car{"Green", "Ford", "Galaxy", 7}}
+    //     carList := List<Car>{Car{"Green", "Ford", "Galaxy", 7}}
     
     carList:Add(Car{"Black", "Wolkswagen", "Golf", 5})
     carList:Add(Car{"Red", "Ford", "Mustang", 4})
@@ -48,10 +56,9 @@ FUNCTION Start() AS VOID STRICT
     FOREACH VAR c IN carList
         Console.WriteLine(i"Make: {c:Make}, Color: {c:Colour}, Seats: {c:Seats}")
     NEXT
-    
-    
-    WAIT
+        
     RETURN
+END FUNCTION        
 
 
 CLASS Vehicle

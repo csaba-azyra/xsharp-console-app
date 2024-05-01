@@ -44,6 +44,7 @@
     <Reference Include="XSharp.RT" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Car.prg" />
     <Compile Include="Properties\AssemblyInfo.prg">
       <SubType>Code</SubType>
     </Compile>

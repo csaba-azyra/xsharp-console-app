@@ -15,21 +15,21 @@ BEGIN NAMESPACE ConsoleApplication1
     /// The Car class.
     /// </summary>
 CLASS Car INHERIT Vehicle
-    
+
     PUBLIC PROPERTY Seats AS INT AUTO
 
         CONSTRUCTOR(_color AS STRING, _make AS STRING, _model AS STRING, _seats AS INT)
             SUPER(_color, _make, _model)
-            
-            IF _seats < 1 || _seats > 8 || _seats == 3 || _seats ==6 
+
+            IF _seats < 1 || _seats > 8 || _seats == 3 || _seats == 6
                 LOCAL ex AS ArgumentException
                 ex := ArgumentException{"Not allowed seat number"}
                 THROW ex
             ENDIF
-            
+
             Seats := _seats
-            
+
          RETURN
 
-	END CLASS
+END CLASS
 END NAMESPACE // ConsoleApplication1

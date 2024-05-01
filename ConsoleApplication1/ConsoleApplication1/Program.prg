@@ -29,19 +29,27 @@ FUNCTION Start() AS VOID STRICT
         System.Console.WriteLine(ex:ToString())
     END TRY
     
-    CarListHandling()
-    
     LOCAL Car2 AS Car
     Car2 := Car{"Red", "Ford", "Focus", 4}
     ? "Make: ", Car2:Make, "Vehicle number: ", Car2:VehicleNumber
     
+    LOCAL carList := CarListHandling() AS List<Car>
+    
+    Console.WriteLine(e"\n\n")
+    
+    LOCAL carArray AS Car[]
+    carArray := <Car>{carList[0], carList[2]}
+    
+    FOREACH VAR c IN carArray
+        Console.WriteLine(i"Make: {c:Make}, Color: {c:Colour}, Seats: {c:Seats}")
+    NEXT   
     
     
     WAIT
     RETURN
 END FUNCTION
     
-FUNCTION CarListHandling AS VOID STRICT
+FUNCTION CarListHandling AS List<Car> STRICT
     LOCAL carList AS List<Car>
     carList := List<Car>{}
     //     carList := List<Car>{Car{"Green", "Ford", "Galaxy", 7}}
@@ -57,7 +65,7 @@ FUNCTION CarListHandling AS VOID STRICT
         Console.WriteLine(i"Make: {c:Make}, Color: {c:Colour}, Seats: {c:Seats}")
     NEXT
         
-    RETURN
+    RETURN carList
 END FUNCTION        
 
 

@@ -64,7 +64,15 @@ FUNCTION CarListHandling AS List<Car> STRICT
     FOREACH VAR c IN carList
         Console.WriteLine(i"Make: {c:Make}, Color: {c:Colour}, Seats: {c:Seats}")
     NEXT
+    
+    LOCAL newList := carList:OrderBy({c => c:Seats}):ToList<Car>() AS List<Car>
+    Console.WriteLine(e"\n\nOrdered by seats list:\n")
+    
+    FOREACH VAR c IN newList
+        Console.WriteLine(i"Make: {c:Make}, Color: {c:Colour}, Seats: {c:Seats}")
+    NEXT
         
+
     RETURN carList
 END FUNCTION        
 

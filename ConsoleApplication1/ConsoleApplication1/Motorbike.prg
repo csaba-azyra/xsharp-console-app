@@ -10,15 +10,21 @@ USING System.Collections.Generic
 USING System.Text
 
 BEGIN NAMESPACE ConsoleApplication1
-
+    
 /// <summary>
 /// The Motorbike class.
 /// </summary>
 CLASS Motorbike INHERIT Vehicle
-
+    
     CONSTRUCTOR(_color AS STRING, _make AS STRING, _model AS STRING)
         SUPER(_color, _make, _model)
+        
+        Wheels := 2
     END CONSTRUCTOR
-
+    
+    PUBLIC OVERRIDE METHOD ToString AS STRING STRICT
+         RETURN SUPER:ToString() + "Motorbike display"
+    END METHOD
+    
 END CLASS
 END NAMESPACE // ConsoleApplication1

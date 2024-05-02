@@ -52,6 +52,7 @@
     <Compile Include="Program.prg">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Vehicle.prg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
